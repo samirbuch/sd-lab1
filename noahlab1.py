@@ -1,32 +1,6 @@
 import random as r
 import math as m
 
-
-list = [x for x in range(1,101)]
-
-random_list = r.sample(list,20)
-
-print('Evens:')
-for i in random_list:
-    if (i % 2 == 0):
-        print(i,end=', ')
-
-
-print()
-
-print('Odds')
-for j in random_list:
-    if (j % 2 != 0):
-        print(j,end=', ')
-
-
-sum = 0
-for i in random_list:
-    sum += i
-
-
-print('\n\nEnd sum:',sum)
-
 def isPrime(num):
     if (num == 2 or num == 3):
         return True
@@ -38,10 +12,28 @@ def isPrime(num):
         i += 1
     return True
 
-primes  = []
-for num in random_list:
-    if isPrime(num):
-        primes.append(num)
+list = [x for x in range(1,101)]
+
+random_list = r.sample(list,20)
 
 
-print('\nMax Prime: ', max(primes))
+
+evens = []
+odds = []
+sum = 0
+max_prime = -1
+for i in random_list:
+    if (i % 2 == 0):
+        evens.append(i)
+    else:
+        odds.append(i)
+    
+    sum += i
+
+    if isPrime(i) and i > max_prime:
+        max_prime = i
+
+print('Evens:', evens)
+print('Odds:', odds)
+print('End Sum: ', sum)
+print('Max Prime:',max_prime)
