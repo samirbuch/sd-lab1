@@ -7,11 +7,16 @@ console.log(nums);
 
 let sum = 0;
 let maxPrime = 0;
+
+const evens: number[] = [];
+const odds: number[] = [];
 for (const num of nums) {
   if (num % 2 == 0) {
-    console.log("Even: ", num);
+    // console.log("Even: ", num);
+    evens.push(num);
   } else {
-    console.log("Odd: ", num);
+    // console.log("Odd: ", num);
+    odds.push(num);
   }
 
   sum += num;
@@ -20,6 +25,8 @@ for (const num of nums) {
     maxPrime = num;
 }
 
+console.log("Evens:", evens);
+console.log("Odds:", odds);
 console.log("Sum:", sum);
 console.log("Max prime:", maxPrime);
 
