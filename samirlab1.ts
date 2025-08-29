@@ -10,6 +10,7 @@ let maxPrime = 0;
 
 const evens: number[] = [];
 const odds: number[] = [];
+const perfectSquares: number[] = [];
 for (const num of nums) {
   if (num % 2 == 0) {
     // console.log("Even: ", num);
@@ -21,16 +22,20 @@ for (const num of nums) {
 
   sum += num;
 
-  if(isPrime(num) && num > maxPrime)
+  if (isPrime(num) && num > maxPrime)
     maxPrime = num;
+
+  if (isPerfectSquare(num))
+    perfectSquares.push(num);
 }
 
 console.log("Evens:", evens);
 console.log("Odds:", odds);
+console.log("Perfect squres:", perfectSquares);
 console.log("Sum:", sum);
 console.log("Max prime:", maxPrime);
 
-function isPrime(num: number) {
+function isPrime(num: number): boolean {
   if (num === 2 || num === 3) return true;
 
   const lim = Math.floor(Math.sqrt(num));
@@ -42,4 +47,8 @@ function isPrime(num: number) {
     i += 1;
   }
   return true;
+}
+
+function isPerfectSquare(num: number): boolean {
+  return Number.isInteger(Math.sqrt(num));
 }
