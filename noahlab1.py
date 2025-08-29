@@ -12,7 +12,11 @@ def isPrime(num):
         i += 1
     return True
 
-list = [x for x in range(1,101)]
+
+upper_bound = int(input("Upper Bound->"))
+lower_bound = int(input("Lower Bound->"))
+
+list = [x for x in range(lower_bound,upper_bound+1)]
 
 random_list = sorted(r.sample(list,20))
 
